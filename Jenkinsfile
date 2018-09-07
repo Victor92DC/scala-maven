@@ -10,13 +10,21 @@ pipeline {
     stages{
         stage("Reference Application Build"){
             steps{
-                echo 'Scala Application pipeline.'
+                echo 'Compiling...'
                 deleteDir()
                 checkout scm
                 withMaven(maven: 'ADOP Maven') {
                     sh 'mvn clean install'   //sustitye aqui el comando maven q quieras
                 }
             }
-        }
-    }
+            stage("Reference Application Unit Tests"){
+                steps{
+                    echo 'Testing...'
+                    withMaven(maven: 'ADOP Maven') {
+                        sh "mvn test"
+                    }   
+                }  
+            }
+         }
+     }
 }
