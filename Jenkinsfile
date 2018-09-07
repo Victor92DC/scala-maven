@@ -8,13 +8,14 @@ pipeline {
     agent { label 'java8' }
     
     stages{
-        withMaven(maven: 'ADOP Maven') 
         stage("Reference Application Build"){
             steps{
                 echo 'Scala Application pipeline.'
                 deleteDir()
                 checkout scm
-                sh "mvn clean install"
+                withMaven(maven: 'ADOP Maven') {
+                    sh 'mvn clean install'   //sustitye aqui el comando maven q quieras
+                }
             }
         }
     }
