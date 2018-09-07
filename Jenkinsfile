@@ -8,6 +8,7 @@ pipeline {
     agent { label 'java8' }
     
     stages{
+        withMaven(maven: 'ADOP Maven') 
         stage("Reference Application Build"){
             steps{
                 echo 'Scala Application pipeline.'
