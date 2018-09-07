@@ -13,7 +13,7 @@ pipeline {
                 echo 'Scala Application pipeline.'
                 deleteDir()
                 checkout scm
-                sh "./mvn clean install"
+                sh "mvn clean install"
             }
         }
     }
