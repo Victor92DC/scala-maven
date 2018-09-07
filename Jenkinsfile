@@ -17,14 +17,6 @@ pipeline {
                     sh 'mvn clean install'   //sustitye aqui el comando maven q quieras
                 }
             }
-            stage("Reference Application Unit Tests"){
-                steps{
-                    echo 'Testing...'
-                    withMaven(maven: 'ADOP Maven') {
-                        sh "mvn test"
-                    }   
-                }  
-            }
          }
      }
 }
