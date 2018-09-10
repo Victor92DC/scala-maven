@@ -22,14 +22,6 @@ pipeline {
                     sh "mvn test"
                 }
             }
-         }
-        stage("Runing"){
-            steps{
-                echo "Running"
-                withMaven(maven: 'ADOP Maven') {
-                    sh "mvn scala:run"
-                }
-           }
-        }   
+         }   
      }
 }
